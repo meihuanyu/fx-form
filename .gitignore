@@ -6,6 +6,10 @@
 /.idea
 /index.d.ts
 /index.js
+/ruleMap.d.ts
+/ruleMap.js
+/useForm.d.ts
+/useForm.js
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
