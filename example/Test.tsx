@@ -6,7 +6,11 @@ import { IFreeForm } from '../lib/useForm';
 export default () => {
     let form: IFreeForm | null = null
     const initValues = {}
-    console.log(FreeForm)
-    return <span>xxx</span>
+    return <FreeForm initValues = {initValues} init = {f => form = f}>
+                <FormItem name = "entryName" label = "风控主体名称" rules = "required">
+                    <Input />
+                </FormItem>
+                <Button onClick = {() => form && console.log(form.onSubmit())}>提交</Button>
+            </FreeForm>
 }
 
