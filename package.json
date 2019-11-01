@@ -1,6 +1,6 @@
 {
   "name": "fx-form",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -11,18 +11,9 @@
     "push": "npm publish"
   },
   "dependencies": {
-    "@types/jest": "24.0.13",
-    "@types/node": "^12.0.10",
-    "@types/react": "^16.9.2",
-    "@types/react-dom": "^16.9.0",
-    "@types/react-router-dom": "^4.3.3",
-    "antd": "^3.24.3",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0",
-    "less": "^3.10.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.1"
+    "react-form-easy": "^0.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
@@ -35,15 +26,23 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "7.0.0",
     "@babel/preset-typescript": "^7.3.3",
+    "@types/jest": "24.0.13",
+    "@types/node": "^12.0.10",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-router-dom": "^4.3.3",
     "babel-loader": "8.0.4",
     "babel-plugin-import": "^1.12.0",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.0.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "file-loader": "^4.0.0",
     "html-webpack-plugin": "^3.2.0",
     "http-proxy-middleware": "^0.19.1",
     "interpolate-html-plugin": "^3.0.0",
     "jest": "^24.8.0",
+    "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "react-dev-utils": "^9.0.1",
     "react-test-renderer": "^16.8.6",
