@@ -1,6 +1,6 @@
 {
   "name": "fx-form",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -9,6 +9,10 @@
     "test": "jest",
     "build": "tsc",
     "push": "npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meihuanyu/fx-form"
   },
   "dependencies": {
     "react": "^16.8.6",
