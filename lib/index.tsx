@@ -16,6 +16,7 @@ interface IFromItemProps {
     useinput?: useInput
     initvalues?: values
     children: React.ReactElement
+    className?: string
 }
 const findItem = (childrens: any, props: any): any => {
     const { useInput, initValues } = props
@@ -59,13 +60,13 @@ const FreeForm = (props: IFreeFormProps) => {
     const { initValues } = props
     const childrens: Array<React.ReactElement> = Array.isArray(props.children) ? props.children: [ props.children ] 
     const Items = findItem(childrens, { useInput, initValues, form })
-    return <div className = "e-from">
+    return <div className = "fx-from">
         {Items}
     </div>
 }
 
 export const FormItem = (props: IFromItemProps) => {
-    const { name, label, labelWidth, rules, error, useinput, initvalues, children } = props
+    const { name, label, labelWidth, rules, error, useinput, initvalues, children, className } = props
     if(!useinput){
         return null
     }
@@ -107,7 +108,7 @@ export const FormItem = (props: IFromItemProps) => {
             defaultError = <span style={{color: "red"}}>{error}</span>
         }
     }
-    return  <div style={{display: "flex"}} className = {`${ruleError ? (ruleError.css || "has-error") : ""}`}>
+    return  <div style={{display: "flex"}} className = {`${className ? className : ""} ${ruleError ? (ruleError.css || "has-error") : ""}`}>
                 {defaultLaber}
                 <div style={{width: "100%"}}>
                     {Com}
