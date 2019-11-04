@@ -22,8 +22,7 @@ const findItem = (childrens: any, props: any): any => {
     const newChildrens = []
     for(let i = 0; i < childrens.length; i++){
         const children = childrens[i]
-        console.log(children)
-        if(children.type && children.type.name === "FormItem"){
+        if(children.props && children.props.name){
             const FormItem = React.cloneElement(children, {
                 key: children.props.name,
                 useinput: useInput,
