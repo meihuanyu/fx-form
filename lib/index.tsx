@@ -5,6 +5,8 @@ type values = any
 interface IFreeFormProps {
     init?: (form: IFreeForm) => any
     initValues?: values
+    className?: string
+    formItemClassName: string
     children: React.ReactElement[]
 }
 interface IFromItemProps {
@@ -17,9 +19,10 @@ interface IFromItemProps {
     initvalues?: values
     children: React.ReactElement
     className?: string
+    formItemClassName?: string
 }
 const findItem = (childrens: any, props: any): any => {
-    const { useInput, initValues } = props
+    const { useInput, initValues, formItemClassName } = props
     const newChildrens = []
     for(let i = 0; i < childrens.length; i++){
         const children = childrens[i]
@@ -27,6 +30,7 @@ const findItem = (childrens: any, props: any): any => {
             const FormItem = React.cloneElement(children, {
                 key: children.props.name,
                 useinput: useInput,
+                formItemClassName,
                 initvalues: initValues || {}
             })
             newChildrens.push(FormItem)
@@ -57,16 +61,20 @@ const FreeForm = (props: IFreeFormProps) => {
     const form = useForm({ })
     props.init && props.init(form) 
     const useInput = form.useInput
-    const { initValues } = props
+    const { initValues, formItemClassName, className } = props
     const childrens: Array<React.ReactElement> = Array.isArray(props.children) ? props.children: [ props.children ] 
-    const Items = findItem(childrens, { useInput, initValues, form })
-    return <div className = "fx-from">
+    const Items = findItem(childrens, { useInput, initValues, form, formItemClassName })
+    return <div className = {`fx-form ${className ? className : " "}`}>
         {Items}
     </div>
 }
 
 export const FormItem = (props: IFromItemProps) => {
-    const { name, label, labelWidth, rules, error, useinput, initvalues, children, className } = props
+    const { name, label, labelWidth, 
+        rules, error, useinput, initvalues, 
+        children, className, formItemClassName
+    } = props
+    const _className = className || formItemClassName
     if(!useinput){
         return null
     }
@@ -94,7 +102,7 @@ export const FormItem = (props: IFromItemProps) => {
                                 lineHeight: 1}}>*</span>
 
     let defaultLaber: any = <div style= {{width: labelWidth || 150}}>
-        {label}
+        <span className="form-label">{label}</span>
         {isRequired ? requiredErrorDom : null}
     </div>
     if(typeof(label) !== 'string'){
@@ -108,7 +116,7 @@ export const FormItem = (props: IFromItemProps) => {
             defaultError = <span style={{color: "red"}}>{error}</span>
         }
     }
-    return  <div style={{display: "flex"}} className = {`${className ? className : ""} ${ruleError ? (ruleError.css || "has-error") : ""}`}>
+    return  <div style={_className ? {} : {display: "flex"}} className = {`form-item ${_className ? _className : " "} ${ruleError ? (ruleError.css || "has-error") : ""}`}>
                 {defaultLaber}
                 <div style={{width: "100%"}}>
                     {Com}
