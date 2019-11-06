@@ -44,7 +44,7 @@ yarn run test
 |  name | string  | 提交参数  | undefind    |   yes |
 | label  | string / React.ReactElement |  默认显示字段 | undefind  | no |
 | labelWidth  | number  | label宽度  |  150 | no |
-| error  | any  | 错误处理  | "" | no |
+| error  | string / string[] / Rule / Rule[]  | 错误处理, Rule类型为 reg， errorCss， errorMsg  | "" | no |
 |  className | string  | itemclassname  | "" | no |
 
 ### from 操作对象
