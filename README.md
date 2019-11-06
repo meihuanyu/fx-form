@@ -1,11 +1,8 @@
 
-## free-form
+## fx-form
 
-帮助你处理表单状态,校验,简单的组合方式
+处理表单状态,校验,简单自由的组合方式
 
-## ✨ Features
-
-- 常用组件校验
 
 ## 简介
 
@@ -13,11 +10,11 @@
 
 form对象,可以操作单个Item状态
 ```
-<FreeForm>
+<FXForm>
     <FormItem name="xx" label="userName">
         <input/>
     </FormItem>
-</FreeForm>
+</FXForm>
 
 ```
 
@@ -32,17 +29,33 @@ yarn add free-from
 yarn run test
 ```
 ## Api
-
-FreeForm
+### FXForm
 |   name    |   type    |   desc    |   default |
 |   -----   |   ------  |   ------  |   ------  |
+|   init    |   function|   用于传递内部form操作对象的初始化方法 ``` (form) => any ``` |  undefind |
+|   initValues  |   objeact  | 初始化item值对象    |   {}    |
+|   className   |   string   |  classname      |    "" |
+|   formItemClassName | string  |   itemclassname | "" |
 
+### FormItem
 
-FormItem
+|   name    |   type    |   desc    |   default |   require |
+|   -----   |   ------  |   ------  |   ------  |   ------  |
+|  name | string  | 提交参数  | undefind    |   yes |
+| label  | string / React.ReactElement |  默认显示字段 | undefind  | no |
+| labelWidth  | number  | label宽度  |  150 | no |
+| error  | any  | 错误处理  | "" | no |
+|  className | string  | itemclassname  | "" | no |
 
+### from 操作对象
 
-
-
+|   name    |   type    |   desc    |
+|   -----   |   ------  |   ------  |
+| onSubmit  | () => [ error, values ] | 提交表单，返回校验信息和value值 |
+| setItems  | (name: string, value: any) => void | 设置item value |
+| onRest    | () => void | 置空表单 |
+| values    | objeact | 当前表单值
+ |
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
