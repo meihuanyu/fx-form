@@ -10,11 +10,13 @@
 
 form对象,可以操作单个Item状态
 ```
-<FXForm>
-    <FormItem name="xx" label="userName">
+import FxForm , { FormItem } from 'fx-form'
+<FxForm>
+    <FormItem name="xx" label="userName" rules="require">
         <input/>
     </FormItem>
-</FXForm>
+    <button type="submit"> 提交 </button>
+</FxForm>
 
 ```
 
@@ -29,7 +31,7 @@ yarn add free-from
 yarn run test
 ```
 ## Api
-### FXForm
+### FxForm
 |   name    |   type    |   desc    |   default |
 |   -----   |   ------  |   ------  |   ------  |
 |   init    |   function|   用于传递内部form操作对象的初始化方法 ``` (form) => any ``` |  undefind |
@@ -44,8 +46,8 @@ yarn run test
 |  name | string  | 提交参数  | undefind    |   yes |
 | label  | string / React.ReactElement |  默认显示字段 | undefind  | no |
 | labelWidth  | number  | label宽度  |  150 | no |
-| error  | string / string[] / Rule / Rule[]  | 错误处理, Rule类型为 reg， errorCss， errorMsg  | "" | no |
-|  className | string  | itemclassname  | "" | no |
+| rules  | string / string[] / Rule / Rule[]  | 错误处理, Rule类型为 reg， errorCss， errorMsg  | "" | no |
+|  className | string  | itemclassname会覆盖FxForm传递的formItemClassName  | "" | no |
 
 ### from 操作对象
 
